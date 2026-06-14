@@ -94,7 +94,7 @@ for workflow in $(find "$PROJECT_ROOT/.github/workflows" -name "*.yml" -o -name 
     echo "  Scanning: $workflow"
 
     # Unpinned actions (using @v3 instead of @sha256:...)
-    unpinned=$(grep -P 'uses:\s+[^@]+@v\d' "$workflow" 2>/dev/null | wc -l || echo 0)
+    unpinned=$(grep -cP 'uses:\s+[^@]+@v\d' "$workflow" 2>/dev/null || true)
     if [ "$unpinned" -gt 0 ]; then
         finding "MEDIUM" "CI/CD" "$workflow" "$unpinned actions pinned to tag instead of SHA"
     fi
@@ -242,7 +242,7 @@ grep -rnP "Access-Control-Allow-Origin.*\*|cors\(\s*\)|origin:\s*(?:true|\*|['\"
     "$PROJECT_ROOT" --include="*.js" --include="*.ts" --include="*.py" \
     --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=vendor 2>/dev/null | head -10 | while IFS= read -r line; do
     finding "HIGH" "CORS" "$(echo "$line" | cut -d: -f1)" "Unrestricted CORS — allows any origin"
-done
+done || true
 
 # ═══════════════════════════════════════════════
 # SUMMARY

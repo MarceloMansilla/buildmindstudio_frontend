@@ -58,11 +58,16 @@
     }
   },
   "hooks": {
-    "PreToolUse":[
-        {
-            "matcher": "Bash",
-            "Command": "bash scripts/protect-originals.sh"
-        }
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/protect-originals.sh"
+          }
+        ]
+      }
     ]
   }
 }
