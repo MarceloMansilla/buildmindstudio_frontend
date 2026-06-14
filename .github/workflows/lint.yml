@@ -25,8 +25,8 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      #- name: Install dependencies (frozen lockfile — no silent upgrades)
-      #  run: pnpm install --frozen-lockfile
+      - name: Install dependencies (frozen lockfile — no silent upgrades)
+        run: pnpm install --frozen-lockfile
 
       # Fails the build on HIGH or CRITICAL CVEs in production dependencies.
       # NOTE: A known PostCSS CVE (GHSA-qx2v-qp2m-jg93) exists via next's internal
