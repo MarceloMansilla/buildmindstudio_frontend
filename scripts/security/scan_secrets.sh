@@ -129,8 +129,12 @@ while IFS= read -r envfile; do
             log_finding "HIGH" "$envfile" "0" ".env file with secrets" "$local_count variables found"
         fi
     fi
-done < <(find "$PROJECT_ROOT" -name ".env" -o -name ".env.local" -o -name ".env.production" \
-    -not -name ".env.example" -not -name ".env.template" -not -name ".env.sample" \
+done < <(find "$PROJECT_ROOT" -name ".env*" \
+    -not -name ".env" \
+    -not -name ".env.local" \
+    -not -name ".env.example" \
+    -not -name ".env.template" \
+    -not -name ".env.sample" \
     ${EXCLUDE_DIRS} 2>/dev/null || true)
 
 # ── MCP Config with hardcoded credentials ──
