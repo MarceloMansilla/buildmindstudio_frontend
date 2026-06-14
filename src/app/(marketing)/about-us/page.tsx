@@ -86,22 +86,42 @@ export default function AboutUsPage() {
       <section
         id="hero"
         aria-labelledby="hero-title"
-        className="mx-auto max-w-7xl px-6 pt-16 pb-12 text-center sm:pt-24 md:pt-28"
+        className="relative isolate overflow-hidden"
       >
-        <div className="mx-auto max-w-3xl">
-          <div className="flex justify-center">
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+          <div className="hero-glow absolute top-[-15%] left-1/2 h-[50vh] w-[80vw] max-w-3xl -translate-x-1/2 rounded-full blur-2xl" />
+          <div className="hero-grain absolute inset-0 opacity-[0.04]" />
+        </div>
+
+        <div className="mx-auto max-w-3xl px-6 pt-16 pb-12 text-center sm:pt-24 md:pt-28">
+          <div
+            className="hero-reveal flex justify-center"
+            style={{ animationDelay: "0ms" }}
+          >
             <Eyebrow>Our story</Eyebrow>
           </div>
-          <h1 id="hero-title" className="mt-6">
+          <h1
+            id="hero-title"
+            className="hero-reveal mt-6"
+            style={{ animationDelay: "90ms" }}
+          >
             We&rsquo;re building a home for{" "}
             <span className="text-[var(--color-text-soft)]">
               lifelong developers.
             </span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl">{LOREM_LONG}</p>
+          <p
+            className="hero-reveal mx-auto mt-6 max-w-xl"
+            style={{ animationDelay: "180ms" }}
+          >
+            {LOREM_LONG}
+          </p>
 
           {/* Company meta — small editorial facts, not big stat cards */}
-          <dl className="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-10">
+          <dl
+            className="hero-reveal mx-auto mt-10 flex max-w-2xl flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-10"
+            style={{ animationDelay: "270ms" }}
+          >
             {stats.map((s) => (
               <div key={s.value} className="text-center">
                 <dt className="font-heading text-2xl tracking-tight text-[var(--color-text)]">
@@ -225,12 +245,18 @@ export default function AboutUsPage() {
         <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 md:py-28">
           <div className="mx-auto max-w-3xl">
             <Eyebrow>Founder note</Eyebrow>
+            <span
+              aria-hidden
+              className="mt-6 block font-heading text-6xl leading-none text-[var(--color-accent)]"
+            >
+              &ldquo;
+            </span>
             <blockquote
               id="founder-title"
-              className="mt-6 font-heading text-2xl leading-snug tracking-tight text-[var(--color-text)] sm:text-3xl"
+              className="mt-3 font-heading text-2xl leading-snug tracking-tight text-[var(--color-text)] sm:text-3xl"
             >
-              &ldquo;Lorem ipsum dolor sit amet, consectetur adipiscing elit —
-              sed do eiusmod tempor incididunt ut labore.&rdquo;
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit — sed do
+              eiusmod tempor incididunt ut labore.
             </blockquote>
             <p className="mt-6">{LOREM_LONG}</p>
             <p className="mt-4">{LOREM}</p>
