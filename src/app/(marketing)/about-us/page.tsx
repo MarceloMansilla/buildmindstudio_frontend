@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { Eyebrow } from "@/src/shared/components/marketing/eyebrow";
+import { NumberedItem } from "@/src/shared/components/marketing/numbered-item";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -74,20 +76,6 @@ const partners: { name: string; mark: ReactNode }[] = [
     ),
   },
 ];
-
-/* ── Shared bits ─────────────────────────────────────────────────── */
-
-function Eyebrow({ children }: { children: ReactNode }) {
-  // Uses <span>, not <p>, so the .marketing p rule can't override its color/size.
-  return (
-    <span className="inline-flex items-center gap-2.5">
-      <span aria-hidden className="h-px w-6 bg-[var(--color-accent)]" />
-      <span className="text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-accent)]">
-        {children}
-      </span>
-    </span>
-  );
-}
 
 /* ── Page ────────────────────────────────────────────────────────── */
 
@@ -217,21 +205,12 @@ export default function AboutUsPage() {
           </div>
           <ol className="md:col-span-8">
             {principles.map((p, i) => (
-              <li
+              <NumberedItem
                 key={p.title}
-                className="flex gap-5 border-t border-[var(--color-border)] py-7 first:border-t-0 first:pt-0 sm:gap-8"
-              >
-                <span
-                  aria-hidden
-                  className="font-heading text-3xl leading-none text-[var(--color-accent)] sm:text-4xl"
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="text-xl">{p.title}</h3>
-                  <p className="mt-2 max-w-xl">{p.body}</p>
-                </div>
-              </li>
+                index={i + 1}
+                title={p.title}
+                body={p.body}
+              />
             ))}
           </ol>
         </div>
