@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, ShoppingBag, X } from "lucide-react";
+import { useCart } from "@/src/shared/cart/cart-context";
 
 const NAV_LINKS = [
   { href: "/about-us", label: "About Us" },
@@ -15,6 +16,7 @@ const NAV_LINKS = [
 
 export function MarketingNav() {
   const [open, setOpen] = useState(false);
+  const { count } = useCart();
 
   // Auto-close the mobile menu once the viewport grows to the desktop breakpoint.
   useEffect(() => {
@@ -46,30 +48,53 @@ export function MarketingNav() {
         BuildMind Studio
       </Link>
 
-      {/* Desktop links */}
-      <div className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
-        {NAV_LINKS.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="transition-colors hover:text-foreground"
-          >
-            {link.label}
-          </Link>
-        ))}
-      </div>
+      <div className="flex items-center gap-1 sm:gap-2">
+        {/* Desktop links */}
+        <div className="mr-1 hidden items-center gap-6 text-sm text-muted-foreground md:flex">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition-colors hover:text-foreground"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
 
-      {/* Mobile toggle */}
-      <button
-        type="button"
-        onClick={() => setOpen((value) => !value)}
-        aria-expanded={open}
-        aria-controls="mobile-nav"
-        aria-label={open ? "Close menu" : "Open menu"}
-        className="inline-flex items-center justify-center rounded-md p-2 text-foreground transition-colors hover:bg-muted md:hidden"
-      >
-        {open ? <X className="size-5" /> : <Menu className="size-5" />}
-      </button>
+        {/* Cart */}
+        <Link
+          href="/books"
+          aria-label={
+            count > 0
+              ? `Cart, ${count} item${count === 1 ? "" : "s"}`
+              : "Cart"
+          }
+          className="relative inline-flex size-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted"
+        >
+          <ShoppingBag className="size-5" />
+          {count > 0 ? (
+            <span
+              aria-hidden
+              className="absolute -top-0.5 -right-0.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[var(--color-accent)] px-1 text-[0.625rem] font-semibold text-[var(--color-surface)]"
+            >
+              {count}
+            </span>
+          ) : null}
+        </Link>
+
+        {/* Mobile toggle */}
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="inline-flex items-center justify-center rounded-md p-2 text-foreground transition-colors hover:bg-muted md:hidden"
+        >
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
+        </button>
+      </div>
 
       {/* Mobile dropdown */}
       {open && (
