@@ -159,4 +159,5 @@ if [ $FINDING_COUNT -eq 0 ]; then
     echo -e "${GREEN}No secrets detected.${NC}"
 else
     echo -e "${RED}Found $FINDING_COUNT potential secrets. Review each finding carefully.${NC}"
+    exit 1
 fi

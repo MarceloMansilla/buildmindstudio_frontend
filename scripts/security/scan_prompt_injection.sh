@@ -362,6 +362,7 @@ else
     echo "some may be legitimate security documentation or testing fixtures."
     echo "However, any file that contains instructions addressed to AI agents"
     echo "should be carefully reviewed for intent."
+    exit 1
 fi
 echo ""
 echo "Recommendations:"

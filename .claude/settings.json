@@ -4,27 +4,12 @@
       "Read",
       "Glob",
       "Grep",
-      "Bash(uv run pytest *)",
-      "Bash(uv run ruff *)",
-      "Bash(uv run python -m pixelforge *)",
-      "Bash(uv add *)",
-      "Bash(uv sync *)",
-      "Bash(uv pip list *)",
+      "Bash(pnpm run *)",
+      "Bash(pnpm install)",
+      "Bash(pnpm dlx *)",
       "Bash(git status *)",
       "Bash(git diff *)",
-      "Bash(git log *)",
-      "Bash(git add *)",
-      "Bash(git commit *)",
-      "Bash(git checkout *)",
-      "Bash(git branch *)",
-      "Bash(python -m http.server *)",
-      "Bash(cat *)",
-      "Bash(ls *)",
-      "Bash(head *)",
-      "Bash(tail *)",
-      "Bash(mkdir *)",
-      "Bash(cp *)",
-      "Bash(wc *)"
+      "Bash(git log *)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -45,16 +30,12 @@
   "sandbox": {
     "enabled": true,
     "filesystem": {
-      "allowWrite": ["/.cache/uv", "/tmp/pixelforge-*"],
-      "denyRead": ["~/.ssh", "~/.aws", "~/.gnupg", "~/.anthropic"],
-      "allowRead": ["."]
+      "allowWrite": [".next/**", "node_modules/.cache/**"],
+      "allowRead": ["."],
+      "denyRead": ["~/.ssh", "~/.aws", "~/.gnupg", "~/.anthropic", "~/.npmrc", "~/.config"]
     },
     "network": {
-        "allowedDomains": [
-            "api.anthropic.com",
-            "pypi.org",
-            "files.pythonhosted.org"
-        ]
+      "allowedDomains": ["api.anthropic.com", "registry.npmjs.org"]
     }
   }
 }
