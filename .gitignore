@@ -11,6 +11,8 @@
 /out/
 /public/
 
+.npmrc
+
 /.pnpm-store/
 # production
 /build
@@ -35,4 +37,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-│ .claude/settings.local.json
+#LOCAL FILE
+.claude/settings.local.json

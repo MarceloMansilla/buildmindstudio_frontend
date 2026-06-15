@@ -225,6 +225,7 @@ if [ $FINDING_COUNT -eq 0 ]; then
 else
     echo -e "${RED}Found $FINDING_COUNT potential vulnerability patterns.${NC}"
     echo "Each finding requires manual review to confirm exploitability."
+    exit 1
 fi
 echo "Note: This is pattern-based scanning. It catches common cases but cannot"
 echo "replace data-flow analysis or dynamic testing."
