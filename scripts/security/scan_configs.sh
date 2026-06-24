@@ -252,4 +252,5 @@ if [ $FINDING_COUNT -eq 0 ]; then
     echo -e "${GREEN}No configuration issues detected.${NC}"
 else
     echo -e "${RED}Found $FINDING_COUNT configuration security issues.${NC}"
+    exit 1
 fi

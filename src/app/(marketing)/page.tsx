@@ -13,7 +13,7 @@ export default function HomePage() {
         <div className="hero-grain absolute inset-0 opacity-[0.045]" />
       </div>
 
-      <div className="mx-auto flex min-h-[calc(100svh-5rem)] max-w-7xl flex-col items-center justify-center px-6 py-20 text-center">
+      <div className="mx-auto flex min-h-[calc(100svh_-_5rem)] max-w-7xl flex-col items-center justify-center px-6 py-20 text-center">
         <div className="hero-reveal" style={{ animationDelay: "0ms" }}>
           <Eyebrow>A studio for lifelong developers</Eyebrow>
         </div>

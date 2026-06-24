@@ -11,6 +11,8 @@
 /out/
 /public/
 
+.npmrc
+
 /.pnpm-store/
 # production
 /build
@@ -26,7 +28,10 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # env files (can opt-in for committing if needed)
-.env*
+.env
+.env.*
+.dev.vars
+.dev.vars.*
 
 # vercel
 .vercel
@@ -35,12 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-│ .claude/settings.local.json
+.claude/settings.local.json
 
-.env
-.env.*
-.dev.vars
-.dev.vars.*
 
 # wrangler files
 .wrangler
