@@ -1,6 +1,8 @@
 onlyBuiltDependencies:
   - sharp
   - unrs-resolver
+  - esbuild
+  - workerd
 
 overrides:
   postcss: ">=8.5.10"
