@@ -7,6 +7,15 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
+  "observability": {
+    "enabled": true
+  },
+  "kv_namespaces": [
+    {
+      "binding": "NEXT_INC_CACHE_KV",
+      "id": "ed04c21dd827459ab2ed0c64defade24"
+    }
+  ],
    "routes": [
     {
       "pattern": "buildmindstudio.com",
