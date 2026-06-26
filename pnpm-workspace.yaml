@@ -1,3 +1,5 @@
+nodeLinker: hoisted
+
 allowBuilds:
   sharp: true
   unrs-resolver: true
@@ -6,3 +8,4 @@ allowBuilds:
 
 overrides:
   postcss: ">=8.5.10"
+  
