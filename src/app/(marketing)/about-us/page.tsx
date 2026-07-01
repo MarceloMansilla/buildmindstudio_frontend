@@ -299,7 +299,7 @@ export default function AboutUsPage() {
           </div>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
-              href="/dashboard"
+              href="/login"
               className="inline-flex items-center justify-center rounded-full bg-[var(--color-surface)] px-7 py-3.5 text-sm font-medium tracking-wide text-[var(--color-text)] transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-text)]"
             >
               Get started

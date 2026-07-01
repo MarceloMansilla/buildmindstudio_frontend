@@ -21,7 +21,7 @@ export function ServiceCard({
         <Icon className="size-5" />
       </span>
       <h3 className="mt-5 text-xl">{title}</h3>
-      <p className="mt-3">{description}</p>
+      <p className="mt-3 flex-1">{description}</p>
       {features && features.length > 0 ? (
         <ul className="mt-5 space-y-2.5 border-t border-[var(--color-border)] pt-5">
           {features.map((feature) => (
@@ -38,6 +38,14 @@ export function ServiceCard({
           ))}
         </ul>
       ) : null}
+      <div className="mt-6 flex justify-center border-t border-[var(--color-border)] pt-5">
+        <button
+          type="button"
+          className="inline-flex items-center justify-center rounded-full border border-[var(--color-accent)] px-5 py-2 text-sm font-medium text-[var(--color-accent)] transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)]"
+        >
+          See details
+        </button>
+      </div>
     </div>
   );
 }
