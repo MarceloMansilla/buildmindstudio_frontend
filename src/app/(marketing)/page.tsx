@@ -30,7 +30,7 @@ export default function HomePage() {
           className="hero-reveal mx-auto mt-7 max-w-xl text-lg leading-relaxed text-[var(--color-text-muted)]"
           style={{ animationDelay: "180ms" }}
         >
-          Courses, tools, and resources for developers who want to grow — learn
+          Courses, tools, and resources for QA Engineers who want to grow — learn
           at your own pace and watch your progress compound, day after day.
         </div>
 
@@ -38,7 +38,7 @@ export default function HomePage() {
           className="hero-reveal mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           style={{ animationDelay: "270ms" }}
         >
-          <Link href="/dashboard" className="btn-primary">
+          <Link href="/login" className="btn-primary">
             Start learning
           </Link>
           <Link

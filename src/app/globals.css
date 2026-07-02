@@ -181,6 +181,7 @@
   font-size: 16px;
   line-height: 1.8;
   color: var(--color-text-muted);
+  text-align: justify;
 }
 
 /* Pill buttons */

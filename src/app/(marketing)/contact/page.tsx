@@ -15,8 +15,8 @@ const details = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@buildmind.studio",
-    href: "mailto:hello@buildmind.studio",
+    value: "info@buildmind.studio",
+    href: "mailto:info@buildmind.studio",
   },
   { icon: MapPin, label: "Studio", value: "Remote — worldwide" },
   { icon: Clock, label: "Response time", value: "Within 1–2 business days" },
